@@ -20,7 +20,7 @@ public class AvionDAO extends BasicDAO<Avion> {
 
     @Override
     public Avion read(ResultSet result) throws SQLException {
-        Transport parent = transportDAO.find(result.getInt("TRANSPORT_ID"));
+        Transport parent = transportDAO.find(result.getInt("ID"));
         return new Avion(result.getInt("id"),
                 parent.getDateDepart(),
                 parent.getDateArrivee(),

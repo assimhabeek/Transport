@@ -20,7 +20,7 @@ public class TrainDAO extends BasicDAO<Train> {
 
     @Override
     public Train read(ResultSet result) throws SQLException {
-        Transport parent = transportDAO.find(result.getInt("TRANSPORT_ID"));
+        Transport parent = transportDAO.find(result.getInt("ID"));
         return new Train(result.getInt("id"),
                 parent.getDateDepart(),
                 parent.getDateArrivee(),

@@ -50,7 +50,6 @@ public abstract class BasicDAO<T> extends DAO<T> {
         PreparedStatement stmt = con.prepareStatement(buildSelectQuery());
         stmt.setInt(1, id);
         ResultSet result = stmt.executeQuery();
-        stmt.close();
         return result.next() ? read(result) : null;
     }
 
@@ -69,7 +68,6 @@ public abstract class BasicDAO<T> extends DAO<T> {
         while (result.next()) {
             records.add(read(result));
         }
-        stmt.close();
         return records;
     }
 
