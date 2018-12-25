@@ -1,12 +1,10 @@
 package bda1.dao;
 
-import bda1.model.Avion;
-import bda1.model.Train;
 import bda1.model.Transport;
 
 import java.sql.*;
 
-public class TransportDAO extends BasicDAO<Transport> {
+public class TransportDAO extends BaseDAO<Transport> {
 
     public TransportDAO(Connection con) {
         super(con, "TRANSPORT");

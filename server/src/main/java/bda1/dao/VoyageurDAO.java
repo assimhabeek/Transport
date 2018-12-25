@@ -4,7 +4,7 @@ import bda1.model.Voyageur;
 
 import java.sql.*;
 
-public class VoyageurDAO extends BasicDAO<Voyageur> {
+public class VoyageurDAO extends BaseDAO<Voyageur> {
 
 
     public VoyageurDAO(Connection con) {

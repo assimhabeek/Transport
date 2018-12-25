@@ -4,13 +4,11 @@ import bda1.model.Facture;
 
 import java.sql.*;
 
-public class FactureDAO extends BasicDAO<Facture> {
+public class FactureDAO extends BaseDAO<Facture> {
 
-    private ReservationDAO reservationDAO;
 
     public FactureDAO(Connection con) {
         super(con, "FACTURE");
-        this.reservationDAO = new ReservationDAO(con);
     }
 
     @Override
@@ -19,7 +17,6 @@ public class FactureDAO extends BasicDAO<Facture> {
                 result.getDate("EMISSION_DATE").toLocalDate(),
                 result.getFloat("TOTAL"),
                 result.getBoolean("REGLEE"));
-        facture.addReservation(reservationDAO.find(result.getInt("RESERVATION_ID")));
         return facture;
     }
 

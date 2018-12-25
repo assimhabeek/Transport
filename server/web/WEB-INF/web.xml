@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://java.sun.com/xml/ns/j2ee"
-         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee%20 http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd%20 http://java.sun.com/xml/ns/j2ee%20  http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
          id="WebApp_ID" version="2.4">
     <display-name>Restful Web Application</display-name>
     <servlet>
@@ -14,7 +11,7 @@
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>bda1.routes</param-value>
+            <param-value>bda1.service</param-value>
         </init-param>
 
 

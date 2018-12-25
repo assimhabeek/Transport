@@ -9,10 +9,10 @@ import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class BasicDAO<T> extends DAO<T> {
+public abstract class BaseDAO<T> extends DAO<T> {
     protected String tableName;
 
-    public BasicDAO(Connection con, String tableName) {
+    public BaseDAO(Connection con, String tableName) {
         super(con);
         this.tableName = tableName;
     }

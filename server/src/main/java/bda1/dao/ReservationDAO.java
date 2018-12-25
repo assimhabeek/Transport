@@ -5,7 +5,7 @@ import bda1.model.Reservation;
 
 import java.sql.*;
 
-public class ReservationDAO extends BasicDAO<Reservation> {
+public class ReservationDAO extends BaseDAO<Reservation> {
 
     public ReservationDAO(Connection con) {
         super(con, "RESERVATION");

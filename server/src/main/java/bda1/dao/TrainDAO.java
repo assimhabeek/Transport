@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class TrainDAO extends BasicDAO<Train> {
+public class TrainDAO extends BaseDAO<Train> {
 
     private TransportDAO transportDAO;
 
