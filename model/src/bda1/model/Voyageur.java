@@ -8,6 +8,9 @@ public class Voyageur {
     private String prenom;
     private LocalDate dateNaissance;
 
+    public Voyageur() {
+    }
+
     public Voyageur(int id, String nom, String prenom, LocalDate dateNaissance) {
         this.id = id;
         this.nom = nom;

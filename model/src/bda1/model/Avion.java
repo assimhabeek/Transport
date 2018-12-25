@@ -7,6 +7,9 @@ public class Avion extends Transport {
     private String compagnie;
     private String typeAppareil;
 
+    public Avion() {
+    }
+
     public Avion(int id, LocalDateTime dateDepart, LocalDateTime dateArrivee, int nbrSiegesOccupes, int nbrSiegesTotal, float prix, String compagnie, String typeAppareil) {
         super(id, dateDepart, dateArrivee, nbrSiegesOccupes, nbrSiegesTotal, prix);
         this.compagnie = compagnie;

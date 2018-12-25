@@ -12,6 +12,7 @@ public class AvionDAO extends BaseDAO<Avion> {
 
     private TransportDAO transportDAO;
 
+
     public AvionDAO(Connection con) {
         super(con, "AVOIN");
         this.transportDAO = new TransportDAO(con);

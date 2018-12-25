@@ -1,0 +1,54 @@
+##Voyageur 
+#GET
+curl http://localhost:8080/rest/voyageur
+curl http://localhost:8080/rest/voyageur/1
+
+#POST
+curl --header "Content-Type: application/json" \
+     --request POST \
+     --data '{"username":"xyz","password":"xyz"}' \
+      http://localhost:8080/rest/voyageur
+
+#PUT
+curl --header "Content-Type: application/json" \
+     --request PUT \
+     --data '{"username":"xyz","password":"xyz"}' \
+      http://localhost:8080/rest/voyageur
+
+#DELETE
+curl --header "Content-Type: application/json" \
+     --request DELETE \
+     --data '{"username":"xyz","password":"xyz"}' \
+      http://localhost:8080/rest/voyageur
+
+
+
+##Facture 
+#GET
+curl http://localhost:8080/rest/facture
+curl http://localhost:8080/rest/facture/1
+
+#POST
+curl --header "Content-Type: application/json" \
+     --request POST \
+     --data '{"id":0,"dateEmission":{"year":2018,"month":"DECEMBER","chronology":{"calendarType":"iso8601","id":"ISO"},"monthValue":12,"dayOfMonth":                13,"dayOfWeek":"THURSDAY","era":"CE","dayOfYear":347,"leapYear":false},"total":70000.0,"reglee":false}' \
+     http://localhost:8080/rest/facture
+
+#PUT
+curl --header "Content-Type: application/json" \
+     --request PUT \
+     --data '{"username":"xyz","password":"xyz"}' \
+      http://localhost:8080/rest/facture
+
+#DELETE
+curl --header "Content-Type: application/json" \
+     --request DELETE \
+     --data '{"username":"xyz","password":"xyz"}' \
+       http://localhost:8080/rest/facture
+
+
+
+##Reservation 
+#GET
+curl http://localhost:8080/rest/reservation
+

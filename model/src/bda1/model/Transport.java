@@ -18,6 +18,9 @@ public abstract class Transport implements ITransport {
     protected float prix;
 
 
+    public Transport() {
+    }
+
     public Transport(int id, LocalDateTime dateDepart, LocalDateTime dateArrivee, int nbrSiegesOccupes, int nbrSiegesTotal, float prix) {
         this.id = id;
         this.dateDepart = dateDepart;

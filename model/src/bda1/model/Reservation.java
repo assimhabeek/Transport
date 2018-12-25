@@ -12,6 +12,9 @@ public class Reservation implements IReservation {
     private Facture rFacture;
     private Adresse rAdresse;
 
+    public Reservation() {
+    }
+
     public Reservation(int id, LocalDate dateReservation) {
         this.id = id;
         this.dateReservation = dateReservation;

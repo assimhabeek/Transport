@@ -6,6 +6,9 @@ public class Adresse {
     private String codePostal;
     private String ville;
 
+    public Adresse() {
+    }
+
     public Adresse(int id, String rue, String codePostal, String ville) {
         this.id = id;
         this.rue = rue;

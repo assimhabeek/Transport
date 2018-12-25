@@ -8,6 +8,8 @@ public class Facture implements IFacture {
     private float total;
     private boolean reglee;
 
+    public Facture() {
+    }
 
     private Reservation rReservation;
 
