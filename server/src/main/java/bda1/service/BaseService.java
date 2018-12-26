@@ -46,6 +46,7 @@ public abstract class BaseService<T> {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response update(T obj) {
         try {
             dao.update(obj);
@@ -57,6 +58,7 @@ public abstract class BaseService<T> {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response create(T obj) {
         try {
             dao.create(obj);
@@ -69,6 +71,7 @@ public abstract class BaseService<T> {
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response delete(T obj) {
         try {
             dao.delete(obj);

@@ -1,9 +1,13 @@
 package bda1.model;
 
+import bda1.utils.LocalDateAdapter;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 public class Facture implements IFacture {
     private int id;
+
     private LocalDate dateEmission;
     private float total;
     private boolean reglee;
@@ -28,6 +32,7 @@ public class Facture implements IFacture {
         this.id = id;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getDateEmission() {
         return dateEmission;
     }

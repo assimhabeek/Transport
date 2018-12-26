@@ -1,13 +1,18 @@
 package bda1.model;
 
+import bda1.utils.LocalDateTimeAdapter;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Transport implements ITransport {
     protected int id;
+
     protected LocalDateTime dateDepart;
     protected LocalDateTime dateArrivee;
+
     protected int nbrSiegesOccupes;
 
     protected int nbrSiegesTotal;
@@ -39,6 +44,7 @@ public abstract class Transport implements ITransport {
         this.id = id;
     }
 
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     public LocalDateTime getDateDepart() {
         return dateDepart;
     }
@@ -47,6 +53,7 @@ public abstract class Transport implements ITransport {
         this.dateDepart = dateDepart;
     }
 
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     public LocalDateTime getDateArrivee() {
         return dateArrivee;
     }

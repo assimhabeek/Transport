@@ -1,11 +1,15 @@
 package bda1.model;
 
+import bda1.utils.LocalDateAdapter;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 public class Voyageur {
     private int id;
     private String nom;
     private String prenom;
+
     private LocalDate dateNaissance;
 
     public Voyageur() {
@@ -43,6 +47,7 @@ public class Voyageur {
         this.prenom = prenom;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getDateNaissance() {
         return dateNaissance;
     }

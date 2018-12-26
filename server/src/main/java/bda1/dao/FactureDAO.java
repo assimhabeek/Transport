@@ -25,13 +25,13 @@ public class FactureDAO extends BaseDAO<Facture> {
         statement.setDate(1, Date.valueOf(obj.getDateEmission()));
         statement.setFloat(2, obj.getTotal());
         statement.setBoolean(3, obj.isReglee());
-        statement.setInt(4, obj.getrReservation().getId());
+        statement.setInt(4, obj.getrReservation() != null ?obj.getrReservation().getId():2);
         return statement;
     }
 
     @Override
     public String buildInsertQuery() {
-        return "INSERT INTO FACTURE (EMISSION_DATE,TOTAL,REGLEE,RESERVATION_ID)";
+        return "INSERT INTO FACTURE (EMISSION_DATE,TOTAL,REGLEE,RESERVATION_ID) VALUES (?,?,?,?)";
     }
 
     @Override
