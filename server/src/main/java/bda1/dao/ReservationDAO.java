@@ -7,6 +7,7 @@ import java.sql.*;
 
 public class ReservationDAO extends BaseDAO<Reservation> {
 
+
     public ReservationDAO(Connection con) {
         super(con, "RESERVATION");
     }

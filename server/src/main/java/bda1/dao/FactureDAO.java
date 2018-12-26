@@ -7,9 +7,13 @@ import java.sql.*;
 public class FactureDAO extends BaseDAO<Facture> {
 
 
+    ReservationDAO reservationDAO;
+
     public FactureDAO(Connection con) {
         super(con, "FACTURE");
+        reservationDAO = new ReservationDAO(con);
     }
+
 
     @Override
     public Facture read(ResultSet result) throws SQLException {
@@ -17,15 +21,17 @@ public class FactureDAO extends BaseDAO<Facture> {
                 result.getDate("EMISSION_DATE").toLocalDate(),
                 result.getFloat("TOTAL"),
                 result.getBoolean("REGLEE"));
+        facture.setrReservation(reservationDAO.find(result.getInt("RESERVATION_ID")));
         return facture;
     }
+
 
     @Override
     public PreparedStatement write(PreparedStatement statement, Facture obj) throws SQLException {
         statement.setDate(1, Date.valueOf(obj.getDateEmission()));
         statement.setFloat(2, obj.getTotal());
         statement.setBoolean(3, obj.isReglee());
-        statement.setInt(4, obj.getrReservation() != null ?obj.getrReservation().getId():2);
+        statement.setInt(4, obj.getrReservation().getId());
         return statement;
     }
 

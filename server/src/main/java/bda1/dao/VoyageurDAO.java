@@ -7,6 +7,7 @@ import java.sql.*;
 public class VoyageurDAO extends BaseDAO<Voyageur> {
 
 
+
     public VoyageurDAO(Connection con) {
         super(con, "VOYAGEUR");
     }
@@ -30,6 +31,7 @@ public class VoyageurDAO extends BaseDAO<Voyageur> {
                 result.getString("NOM"),
                 result.getString("PRENOM"),
                 result.getDate("NAISSANCE_DATE").toLocalDate());
+
     }
 
     @Override
