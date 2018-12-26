@@ -1,16 +1,23 @@
 package bda1.model;
 
+import bda1.utils.LocalDateAdapter;
+
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Reservation implements IReservation {
     private int id;
+
     private LocalDate dateReservation;
     private Set<Voyageur> rVoyageurs;
     private Set<Transport> rTransports;
     private Facture rFacture;
     private Adresse rAdresse;
+
+    public Reservation() {
+    }
 
     public Reservation(int id, LocalDate dateReservation) {
         this.id = id;
@@ -27,6 +34,7 @@ public class Reservation implements IReservation {
         this.id = id;
     }
 
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public LocalDate getDateReservation() {
         return dateReservation;
     }

@@ -6,6 +6,9 @@ public class Train extends Transport {
     private int nbrWagons;
     private boolean voitureCafeteria;
 
+    public Train() {
+    }
+
     public Train(int id, LocalDateTime dateDepart, LocalDateTime dateArrivee, int nbrSiegesOccupes, int nbrSiegesTotal, float prix, int nbrWagons, boolean voitureCafeteria) {
         super(id, dateDepart, dateArrivee, nbrSiegesOccupes, nbrSiegesTotal, prix);
         this.nbrWagons = nbrWagons;
@@ -32,4 +35,6 @@ public class Train extends Transport {
     public int calculerNbrSiegesDispo() {
         return getNbrSiegesTotal() - getNbrSiegesOccupes();
     }
+
+
 }

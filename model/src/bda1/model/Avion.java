@@ -7,6 +7,9 @@ public class Avion extends Transport {
     private String compagnie;
     private String typeAppareil;
 
+    public Avion() {
+    }
+
     public Avion(int id, LocalDateTime dateDepart, LocalDateTime dateArrivee, int nbrSiegesOccupes, int nbrSiegesTotal, float prix, String compagnie, String typeAppareil) {
         super(id, dateDepart, dateArrivee, nbrSiegesOccupes, nbrSiegesTotal, prix);
         this.compagnie = compagnie;
@@ -38,5 +41,6 @@ public class Avion extends Transport {
     public boolean equals(Object obj) {
         return obj instanceof Avion && getId() == ((Avion) obj).getId();
     }
+
 
 }
