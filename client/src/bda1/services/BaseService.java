@@ -66,7 +66,7 @@ public class BaseService<T> {
         return response.getEntity(clazz);
     }
 
-    public T delete(T element){
+    public T delete(T element) {
         ClientResponse response = HttpConnection.getResource()
                 .path(this.path)
                 .accept(MediaType.APPLICATION_JSON)
