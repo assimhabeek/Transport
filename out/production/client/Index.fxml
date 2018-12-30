@@ -1,46 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
-<?import java.lang.String?>
-<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
-           xmlns="http://javafx.com/javafx/2.2">
-    <BorderPane>
-        <top>
-            <VBox spacing="20">
-                <JFXToolbar>
-                    <leftItems>
-                        <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
-                            <StackPane fx:id="titleBurgerContainer">
-                                <JFXHamburger fx:id="titleBurger">
-                                    <HamburgerBackArrowBasicTransition/>
-                                </JFXHamburger>
-                            </StackPane>
-                        </JFXRippler>
-                        <Label>Material Design</Label>
-                    </leftItems>
-                    <rightItems>
-                        <JFXRippler fx:id="optionsRippler" maskType="CIRCLE"
-                                    style="-fx-ripple-color:WHITE;">
-                            <StackPane fx:id="optionsBurger">
-                                <JFXHamburger styleClass="jfx-options-burger">
-                                </JFXHamburger>
-                            </StackPane>
-                        </JFXRippler>
-                    </rightItems>
-                </JFXToolbar>
-            </VBox>
-        </top>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-        <!-- Content Area -->
-        <center>
-            <JFXDrawer fx:id="drawer" defaultDrawerSize="250" direction="LEFT">
-                <styleClass>
-                    <String fx:value="body"/>
-                </styleClass>
-            </JFXDrawer>
-        </center>
-    </BorderPane>
-</StackPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bda1.Controller">
+    <children>
+        <AnchorPane layoutX="149.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FCC6AB;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="184.0" text="Welcome To Habeek Travels">
+                    <font>
+                        <Font name="Segoe Print Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <VBox prefHeight="400.0" prefWidth="149.0" style="-fx-background-color: #AF4B57;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="btn_home" mnemonicParsing="false" onAction="#ButtonClicked3" prefHeight="60.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Home">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font></Button>
+                <Button fx:id="btn_Transport" mnemonicParsing="false" onAction="#ButtonClicked" prefHeight="60.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Transport">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font></Button>
+                <Button fx:id="btn_Voyageur" mnemonicParsing="false" onAction="#ButtonClicked1" prefHeight="60.0" prefWidth="149.0" style="-fx-background-color: Transparent;" text="Voyageur">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font></Button>
+                <Button fx:id="btn_reservation" mnemonicParsing="false" onAction="#ButtonClicked2" prefHeight="60.0" prefWidth="152.0" style="-fx-background-color: Transparent;" text="Réservation">
+                    <font>
+                        <Font name="SansSerif Bold" size="18.0" />
+                    </font></Button>
+            </children>
+            <effect>
+                <DropShadow />
+            </effect>
+        </VBox>
+    </children>
+</AnchorPane>
