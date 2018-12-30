@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 public class Main extends Application {
 
@@ -13,7 +15,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/Index.fxml"));
         primaryStage.setTitle("Transport Application GUI");
-        primaryStage.setScene(new Scene(root, 800, 400));
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        primaryStage.setScene(new Scene(root, dimension.getWidth(), dimension.getHeight()));
 
         primaryStage.show();
 

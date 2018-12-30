@@ -1,6 +1,7 @@
 package bda1.control;
 
 import bda1.model.Voyageur;
+import bda1.services.VoyageurService;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -23,19 +24,16 @@ public class VoyageurController {
     TableColumn<Voyageur, String> prenom;
     @FXML
     TableColumn<Voyageur, LocalDate> dateNaissance;
+    VoyageurService voyageurService;
 
     public void initialize() {
+        voyageurService = new VoyageurService();
         id.setCellValueFactory(itemData -> new ReadOnlyIntegerWrapper(itemData.getValue().getId()).asObject());
         prenom.setCellValueFactory(itemData -> new ReadOnlyStringWrapper(itemData.getValue().getPrenom()));
         nom.setCellValueFactory(itemData -> new ReadOnlyStringWrapper(itemData.getValue().getNom()));
         dateNaissance.setCellValueFactory(itemData -> new ReadOnlyObjectWrapper<>(itemData.getValue().getDateNaissance()));
         voyageurTable.setItems(FXCollections.observableArrayList(
-                new Voyageur(1, "habeek", "assim", LocalDate.now()),
-                new Voyageur(1, "habeek", "assim", LocalDate.now()),
-                new Voyageur(1, "habeek", "assim", LocalDate.now()),
-                new Voyageur(1, "habeek", "assim", LocalDate.now()),
-                new Voyageur(1, "habeek", "assim", LocalDate.now()),
-                new Voyageur(1, "habeek", "assim", LocalDate.now())
+                voyageurService.findAll()
         ));
     }
 
