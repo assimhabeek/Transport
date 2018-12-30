@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="bda1.control.SideNavController">
+    <children>
+        <Button fx:id="btn_Home" mnemonicParsing="false" onAction="#onHomeAction" prefHeight="60.0" prefWidth="149.0"
+                style="-fx-background-color: Transparent;" text="Home">
+            <font>
+                <Font name="SansSerif Bold" size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btn_Transport" mnemonicParsing="false" onAction="#onTransportAction" prefHeight="60.0"
+                prefWidth="149.0" style="-fx-background-color: Transparent;" text="Transport">
+            <font>
+                <Font name="SansSerif Bold" size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btn_Voyageur" mnemonicParsing="false" onAction="#onVoyageurAction" prefHeight="60.0"
+                prefWidth="149.0" style="-fx-background-color: Transparent;" text="Voyageur">
+            <font>
+                <Font name="SansSerif Bold" size="18.0"/>
+            </font>
+        </Button>
+        <Button fx:id="btn_Reservation" mnemonicParsing="false" onAction="#onReservationAction" prefHeight="60.0"
+                prefWidth="152.0" style="-fx-background-color: Transparent;" text="Réservation">
+            <font>
+                <Font name="SansSerif Bold" size="18.0"/>
+            </font>
+        </Button>
+    </children>
+</VBox>
