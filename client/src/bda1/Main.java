@@ -1,17 +1,10 @@
 package bda1;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 public class Main extends Application {
 
@@ -20,6 +13,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load(getClass().getResource("/Index.fxml"));
             primaryStage.setTitle("Transport Application GUI");
             primaryStage.setScene(new Scene(root, 800, 400));
+
             primaryStage.show();
 
 

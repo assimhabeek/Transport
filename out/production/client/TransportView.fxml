@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+              minWidth="-Infinity" prefHeight="400.0" prefWidth="149.0"
+              style="-fx-background-color: #AF4B57;"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <fx:include source="SideNav.fxml"/>
+            </children>
+        </Pane>
+        <AnchorPane layoutX="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FCC6AB;"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <children>
+                <TableView layoutX="12.0" layoutY="46.0" prefHeight="200.0" prefWidth="639.0"
+                           AnchorPane.bottomAnchor="154.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="10.0"
+                           AnchorPane.topAnchor="36.0">
+                    <columns>
+                        <TableColumn prefWidth="60.0" text="Id"/>
+                        <TableColumn prefWidth="97.0" text="Date Depart"/>
+                        <TableColumn prefWidth="83.0" text="Date Arrive"/>
+                        <TableColumn prefWidth="93.0" text="Nbr Sieges Occupés"/>
+                        <TableColumn prefWidth="98.0" text="Nbr Sieges Total"/>
+                    </columns>
+                </TableView>
+                <Button layoutX="303.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #AF4B57;"
+                        text="Add new Transport" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0"
+                        AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
