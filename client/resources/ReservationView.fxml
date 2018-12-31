@@ -32,7 +32,7 @@
                     <columns>
                         <TableColumn fx:id="id" text="Id"/>
                         <TableColumn fx:id="dateReservation" text="Date Reservation"/>
-                        <TableColumn text="Address">
+                        <TableColumn text="Adresse">
                             <columns>
                                 <TableColumn fx:id="rue" text="Rue"/>
                                 <TableColumn fx:id="ville" text="Ville"/>
@@ -40,19 +40,26 @@
                             </columns>
                         </TableColumn>
 
+                        <TableColumn text="Facture">
+                            <columns>
+                                <TableColumn fx:id="dateEmission" text="Date d'emission"/>
+                                <TableColumn fx:id="total" text="Total"/>
+                                <TableColumn fx:id="reglee" text="Reglee"/>
+                            </columns>
+                        </TableColumn>
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                     </columnResizePolicy>
 
                 </TableView>
-                <Button layoutX="460.0" layoutY="315.0" mnemonicParsing="false" style="-fx-background-color: AF4B57;"
+                <!--Button layoutX="460.0" layoutY="315.0" mnemonicParsing="false" style="-fx-background-color: AF4B57;"
                         text="Add New Reservation" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0"
                         AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
                     <effect>
                         <DropShadow/>
                     </effect>
-                </Button>
+                </Button-->
             </children>
         </AnchorPane>
         <fx:include source="SideNav.fxml"/>

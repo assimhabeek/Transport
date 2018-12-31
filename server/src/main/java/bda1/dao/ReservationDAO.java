@@ -14,12 +14,14 @@ public class ReservationDAO extends BaseDAO<Reservation> {
 
     @Override
     public Reservation read(ResultSet result) throws SQLException {
+
         Reservation reservation = new Reservation(result.getInt("ID"),
                 result.getDate("RESERVATION_DATE").toLocalDate());
         reservation.addAdresse(new Adresse(result.getInt("ID"),
                 result.getNString("RUE"),
                 result.getString("CODE_POSTAL"),
                 result.getNString("VILLE")));
+        reservation.setrFacture(new FactureDAO(con).findByReservationId(reservation.getId()));
         return reservation;
     }
 

@@ -7,11 +7,9 @@ import java.sql.*;
 public class FactureDAO extends BaseDAO<Facture> {
 
 
-    ReservationDAO reservationDAO;
 
     public FactureDAO(Connection con) {
         super(con, "FACTURE");
-        reservationDAO = new ReservationDAO(con);
     }
 
 
@@ -21,7 +19,7 @@ public class FactureDAO extends BaseDAO<Facture> {
                 result.getDate("EMISSION_DATE").toLocalDate(),
                 result.getFloat("TOTAL"),
                 result.getBoolean("REGLEE"));
-        facture.setrReservation(reservationDAO.find(result.getInt("RESERVATION_ID")));
+        facture.setrReservation(new ReservationDAO(con).find(result.getInt("RESERVATION_ID")));
         return facture;
     }
 
@@ -43,5 +41,15 @@ public class FactureDAO extends BaseDAO<Facture> {
     @Override
     public String buildUpdateQuery() {
         return "UPDATE FACTURE SET EMISSION_DATE=?,TOTAL=?,REGLEE=?,RESERVATION_ID=? WHERE ID=?";
+    }
+
+    public Facture findByReservationId(int reservationId) throws SQLException {
+        String sql = String.format("SELECT * FROM FACTURE WHERE RESERVATION_ID=%s", reservationId);
+        PreparedStatement stmt = con.prepareStatement(sql);
+        ResultSet result = stmt.executeQuery();
+        return result.next() ? new Facture(result.getInt("id"),
+                result.getDate("EMISSION_DATE").toLocalDate(),
+                result.getFloat("TOTAL"),
+                result.getBoolean("REGLEE")) : null;
     }
 }
