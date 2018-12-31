@@ -18,7 +18,7 @@
                         <TableColumn prefWidth="127.0" text="Date Reservation" />
                     </columns>
                 </TableView>
-                <Button layoutX="460.0" layoutY="315.0" mnemonicParsing="false" style="-fx-background-color: AF4B57;" text="Add New Reservation" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
+                <Button layoutX="460.0" layoutY="315.0" mnemonicParsing="false" onAction="#AddButtonHandler2" style="-fx-background-color: AF4B57;" text="Add New Reservation" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
                     <effect>
                         <DropShadow />
                     </effect>

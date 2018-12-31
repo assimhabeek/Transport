@@ -21,7 +21,7 @@
                         <TableColumn prefWidth="98.0" text="Nbr Sieges Total" />
                     </columns>
                 </TableView>
-                <Button layoutX="303.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #AF4B57;" text="Add new Transport" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
+                <Button layoutX="303.0" layoutY="313.0" mnemonicParsing="false" onAction="#AddButtonHandler" style="-fx-background-color: #AF4B57;" text="Add new Transport" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
                     <effect>
                         <DropShadow />
                     </effect></Button>

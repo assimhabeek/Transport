@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class Controller {
     @FXML
-    public Button btn_Home, btn_Transport, btn_Voyageur, btn_reservation;
+    public Button btn_Home, btn_Transport, btn_Voyageur, btn_reservation, close_btn;
 
     public void ButtonClicked(ActionEvent event) throws IOException {
         Parent TransportView = FXMLLoader.load(getClass().getResource("/Transport_view.FXML"));
@@ -53,5 +53,33 @@ public class Controller {
         window.show();
 
 
+    }
+    public void AddButtonHandler (ActionEvent event) throws IOException {
+        Parent root1 = FXMLLoader.load(getClass().getResource("/Transport_add.fxml"));
+        Scene AddView = new Scene(root1);
+
+        Stage stage = new Stage();
+        stage.setScene(AddView);
+        stage.show();
+    }
+    public void AddButtonHandler1 (ActionEvent event) throws IOException {
+        Parent root1 = FXMLLoader.load(getClass().getResource("/Voyageur_add.fxml"));
+        Scene AddView = new Scene(root1);
+
+        Stage stage = new Stage();
+        stage.setScene(AddView);
+        stage.show();
+    }
+    public void AddButtonHandler2 (ActionEvent event) throws IOException {
+        Parent root1 = FXMLLoader.load(getClass().getResource("/Reservation_add.fxml"));
+        Scene AddView = new Scene(root1);
+
+        Stage stage = new Stage();
+        stage.setScene(AddView);
+        stage.show();
+    }
+    public void CloseStage (){
+        Stage stage = (Stage) close_btn.getScene().getWindow();
+        stage.close();
     }
 }

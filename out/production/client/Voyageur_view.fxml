@@ -20,7 +20,7 @@
                         <TableColumn prefWidth="139.0" text="Date de Naissance" />
                     </columns>
                 </TableView>
-                <Button layoutX="303.0" layoutY="313.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #AF4B57;" text="Add New Voyageur" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="319.0">
+                <Button layoutX="303.0" layoutY="313.0" mnemonicParsing="false" onAction="#AddButtonHandler1" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #AF4B57;" text="Add New Voyageur" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="319.0">
                     <effect>
                         <DropShadow />
                     </effect></Button>
