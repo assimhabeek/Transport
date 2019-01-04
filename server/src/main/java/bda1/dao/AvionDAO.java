@@ -34,36 +34,43 @@ public class AvionDAO extends BaseDAO<Avion> {
 
     @Override
     public PreparedStatement write(PreparedStatement statement, Avion obj) throws SQLException {
-        statement.setString(1, obj.getCompagnie());
-        statement.setString(2, obj.getTypeAppareil());
+        statement.setLong(1, obj.getId());
+        statement.setString(2, obj.getCompagnie());
+        statement.setString(3, obj.getTypeAppareil());
         return statement;
     }
 
     @Override
     public String buildInsertQuery() {
-        return "INSERT INTO AVION (COMPAGNIE,TYPE_APPAREIL) Values (?,?,?)";
+        return "INSERT INTO AVOIN (ID,COMPAGNIE,TYPE_APPAREIL) Values (?,?,?)";
     }
 
     @Override
     public String buildUpdateQuery() {
-        return "UPDATE AVION SET COMPAGNIE=?,TYPE_APPAREIL=? WHERE ID=?";
+        return "UPDATE AVOIN SET ID=?,COMPAGNIE=?,TYPE_APPAREIL=? WHERE ID=?";
     }
 
     @Override
     public boolean update(Avion obj) throws Exception {
-        return transportDAO.update(obj) && super.update(obj);
+        transportDAO.update(obj);
+        return super.update(obj);
     }
 
     @Override
     public boolean create(Avion obj) throws SQLException {
-        if (transportDAO.create(obj)) {
-            return super.create(obj);
-        }
-        return false;
+        transportDAO.create(obj);
+        obj.setId(transportDAO.lastInsertedId());
+        return super.create(obj);
+    }
+
+    @Override
+    public int lastInsertedId() throws SQLException {
+        return transportDAO.lastInsertedId();
     }
 
     @Override
     public boolean delete(Avion obj) throws Exception {
-        return transportDAO.delete(obj) && super.delete(obj);
+        super.delete(obj);
+        return transportDAO.delete(obj);
     }
 }

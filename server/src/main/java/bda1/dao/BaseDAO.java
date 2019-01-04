@@ -41,7 +41,7 @@ public abstract class BaseDAO<T> extends DAO<T> {
 
 
     public String buildDeleteQuery() {
-        return String.format("DELETE * FROM %s WHERE %s.ID=?", tableName, tableName);
+        return String.format("DELETE  FROM %s WHERE %s.ID=?", tableName, tableName);
     }
 
 

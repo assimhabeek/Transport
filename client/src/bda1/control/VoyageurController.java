@@ -48,6 +48,7 @@ public class VoyageurController {
         voyageurService = new VoyageurService();
         setUpTable();
         fillTable();
+        listenOnRowSelection();
     }
 
 
@@ -63,6 +64,18 @@ public class VoyageurController {
         if (voyageurService.delete(selectedItem))
             model.remove(selectedItem);
 
+    }
+
+    public void listenOnRowSelection() {
+        voyageurTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            selectedItem = newSelection;
+            disableEditDeleteButtons(selectedItem == null);
+        });
+    }
+
+    public void disableEditDeleteButtons(boolean disable) {
+        edit.setDisable(disable);
+        delete.setDisable(disable);
     }
 
     public void setUpTable() {

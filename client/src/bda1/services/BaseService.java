@@ -71,13 +71,13 @@ public class BaseService<T> {
     public boolean delete(T element) {
         ClientResponse response = HttpConnection.getResource()
                 .path(this.path)
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_PLAIN)
                 .type(MediaType.APPLICATION_JSON)
                 .delete(ClientResponse.class, element);
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
         }
-        return response.getEntity(boolean.class);
+        return Boolean.parseBoolean(response.getEntity(String.class));
     }
 
     private GenericType<Set<T>> getParameterizedSetType() {

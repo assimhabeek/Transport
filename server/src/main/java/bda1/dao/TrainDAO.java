@@ -34,37 +34,44 @@ public class TrainDAO extends BaseDAO<Train> {
 
     @Override
     public PreparedStatement write(PreparedStatement statement, Train obj) throws SQLException {
-        statement.setInt(1, obj.getNbrWagons());
-        statement.setBoolean(2, obj.isVoitureCafeteria());
+        statement.setLong(1, obj.getId());
+        statement.setInt(2, obj.getNbrWagons());
+        statement.setBoolean(3, obj.isVoitureCafeteria());
         return statement;
     }
 
     @Override
     public String buildInsertQuery() {
-        return "INSERT INTO Train (NOMBRE_WAGONS,VOITURE_CAFETERIA) Values (?,?,?)";
+        return "INSERT INTO TRAIN (ID,NOMBRE_WAGONS,VOITURE_CAFETERIA) Values (?,?,?)";
     }
 
     @Override
     public String buildUpdateQuery() {
-        return "UPDATE Train SET NOMBRE_WAGONS=?,VOITURE_CAFETERIA=? WHERE ID=?";
+        return "UPDATE TRAIN SET ID=?,NOMBRE_WAGONS=?,VOITURE_CAFETERIA=? WHERE ID=?";
     }
 
     @Override
     public boolean update(Train obj) throws Exception {
-        return transportDAO.update(obj) && super.update(obj);
+        transportDAO.update(obj);
+        return super.update(obj);
     }
 
     @Override
     public boolean create(Train obj) throws SQLException {
-        if (transportDAO.create(obj)) {
-            return super.create(obj);
-        }
-        return false;
+        transportDAO.create(obj);
+        obj.setId(transportDAO.lastInsertedId());
+        return super.create(obj);
     }
 
     @Override
     public boolean delete(Train obj) throws Exception {
-        return transportDAO.delete(obj) && super.delete(obj);
+        super.delete(obj);
+        return transportDAO.delete(obj);
+    }
+
+    @Override
+    public int lastInsertedId() throws SQLException {
+        return transportDAO.lastInsertedId();
     }
 
 }

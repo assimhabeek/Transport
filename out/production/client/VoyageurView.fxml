@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -51,9 +51,9 @@
                     </padding>
                 </HBox>
 
-                <TableView fx:id="voyageurTable" layoutX="26.0" layoutY="35.0" prefHeight="221.0" prefWidth="392.0"
-                           AnchorPane.bottomAnchor="154.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="10.0"
-                           AnchorPane.topAnchor="36.0">
+                <TableView fx:id="voyageurTable" layoutX="11.0" layoutY="58.0" prefHeight="200.0" prefWidth="373.0"
+                           AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0"
+                           AnchorPane.topAnchor="58.0">
                     <columns>
                         <TableColumn fx:id="id" text="Id"/>
                         <TableColumn fx:id="nom" text="Nom"/>
