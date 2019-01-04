@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Transport implements ITransport {
-    protected int id;
+    public int id;
 
     protected LocalDateTime dateDepart;
     protected LocalDateTime dateArrivee;

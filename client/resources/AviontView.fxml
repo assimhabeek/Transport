@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<AnchorPane prefHeight="400.0" prefWidth="800"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bda1.control.AvionController">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" style="-fx-background-color: #FCC6AB;"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <stylesheets>
+                <URL value="@tableView.css"/>
+            </stylesheets>
+            <children>
+                <HBox alignment="CENTER_LEFT" layoutY="10.0" prefHeight="48.0">
+                    <children>
+                        <JFXButton fx:id="add" buttonType="RAISED" style="-fx-background-color: #FFF;" onAction="#onAdd"
+                                   text="Ajouter">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="edit" buttonType="RAISED" disable="true" style="-fx-background-color: #FFF;"
+                                   onAction="#onUpdate" text="Modifier">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="delete" buttonType="RAISED" disable="true" style="-fx-background-color: #FFF;"
+                                   onAction="#onDelete" text="Supprimer">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                    </children>
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </HBox>
+
+                <TableView fx:id="transportTable" layoutY="58.0" prefHeight="200.0"
+                           AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                           AnchorPane.topAnchor="58.0">
+                    <columns>
+                        <TableColumn fx:id="id" text="Id"/>
+                        <TableColumn fx:id="depart" text="Date Depart"/>
+                        <TableColumn fx:id="arrive" text="Date Arrive"/>
+                        <TableColumn fx:id="total" text="Nbr Sieges Total"/>
+                        <TableColumn fx:id="prix" text="Prix"/>
+                        <TableColumn fx:id="compagnie" text="Compagnie"/>
+                        <TableColumn fx:id="typeAppareil" text="Type d'Appareil"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

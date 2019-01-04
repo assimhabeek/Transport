@@ -7,7 +7,6 @@ import java.sql.*;
 public class FactureDAO extends BaseDAO<Facture> {
 
 
-
     public FactureDAO(Connection con) {
         super(con, "FACTURE");
     }
@@ -42,6 +41,8 @@ public class FactureDAO extends BaseDAO<Facture> {
     public String buildUpdateQuery() {
         return "UPDATE FACTURE SET EMISSION_DATE=?,TOTAL=?,REGLEE=?,RESERVATION_ID=? WHERE ID=?";
     }
+
+
 
     public Facture findByReservationId(int reservationId) throws SQLException {
         String sql = String.format("SELECT * FROM FACTURE WHERE RESERVATION_ID=%s", reservationId);

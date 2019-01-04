@@ -46,39 +46,39 @@ public abstract class BaseService<T> {
 
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response update(T obj) {
         try {
             dao.update(obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Response.status(Status.OK).entity(obj).build();
+        return Response.status(Status.OK).entity(String.valueOf(true)).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response create(T obj) {
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response create(T obj) throws SQLException {
         try {
             dao.create(obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Response.status(Status.OK).entity(obj).build();
+        return Response.status(Status.OK).entity(String.valueOf(dao.lastInsertedId())).build();
     }
 
 
     @DELETE
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response delete(T obj) {
         try {
             dao.delete(obj);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Response.status(Status.OK).entity(obj).build();
+        return Response.status(Status.OK).entity(String.valueOf(true)).build();
     }
 
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import bda1.utils.DateTimePicker?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="371.0" prefWidth="440.0" style="-fx-background-color: #FCC6AB;"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bda1.control.TrainFromController">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Train">
+            <font>
+                <Font name="SansSerif Bold" size="22.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="49.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Date de Depart"/>
+                <DateTimePicker fx:id="depart"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_RIGHT" layoutX="220.0" layoutY="314.0" prefHeight="41.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#onClose"
+                        style="-fx-background-color: #AF4B57;-fx-text-fill: #fff;" text="Close">
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button fx:id="saveBtn" mnemonicParsing="false"
+                        style="-fx-background-color: #AF4B57;-fx-text-fill: #fff;" text="Sauvgarder">
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="90.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Date d' arrive"/>
+                <DateTimePicker fx:id="arrive"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="131.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Nombre de siege Total"/>
+                <JFXTextField fx:id="total"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="172.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Prix"/>
+                <JFXTextField fx:id="prix"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="213.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Nombre de wagane"/>
+                <JFXTextField fx:id="nombreWagons"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="263.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="cafitiria"/>
+                <JFXCheckBox text=" " fx:id="voitureCafeteria"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

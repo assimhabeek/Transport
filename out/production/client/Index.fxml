@@ -22,7 +22,7 @@
                     AnchorPane.topAnchor="0.0">
             <children>
                 <Label alignment="CENTER" contentDisplay="CENTER" layoutX="106.0" layoutY="184.0"
-                       text="Welcome To Habeek Travels">
+                       text="Welcome To Useless Travels">
                     <font>
                         <Font name="Segoe Print Bold" size="18.0"/>
                     </font>

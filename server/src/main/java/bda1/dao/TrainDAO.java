@@ -57,7 +57,6 @@ public class TrainDAO extends BaseDAO<Train> {
     @Override
     public boolean create(Train obj) throws SQLException {
         if (transportDAO.create(obj)) {
-            int parentId = transportDAO.lastInsertedId();
             return super.create(obj);
         }
         return false;

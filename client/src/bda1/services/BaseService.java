@@ -43,38 +43,41 @@ public class BaseService<T> {
         return response.getEntity(clazz);
     }
 
-    public T create(T element) {
+    public int create(T element) {
         ClientResponse response = HttpConnection.getResource()
                 .path(this.path)
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_PLAIN)
+                .type(MediaType.APPLICATION_JSON)
                 .post(ClientResponse.class, element);
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
         }
-        return response.getEntity(clazz);
+        return Integer.parseInt(response.getEntity(String.class));
     }
 
 
-    public T update(T element) {
+    public boolean update(T element) {
         ClientResponse response = HttpConnection.getResource()
                 .path(this.path)
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_PLAIN)
+                .type(MediaType.APPLICATION_JSON)
                 .put(ClientResponse.class, element);
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
         }
-        return response.getEntity(clazz);
+        return Boolean.parseBoolean(response.getEntity(String.class));
     }
 
-    public T delete(T element) {
+    public boolean delete(T element) {
         ClientResponse response = HttpConnection.getResource()
                 .path(this.path)
                 .accept(MediaType.APPLICATION_JSON)
+                .type(MediaType.APPLICATION_JSON)
                 .delete(ClientResponse.class, element);
         if (response.getStatus() != 200) {
             throw new RuntimeException("Failed : HTTP error code : " + response.getStatus());
         }
-        return response.getEntity(clazz);
+        return response.getEntity(boolean.class);
     }
 
     private GenericType<Set<T>> getParameterizedSetType() {

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="567.0" prefWidth="440.0" style="-fx-background-color: #FCC6AB;"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="bda1.control.ReservationFromController">
+    <children>
+        <Label layoutX="14.0" layoutY="14.0" text="Reservation">
+            <font>
+                <Font name="SansSerif Bold" size="22.0"/>
+            </font>
+        </Label>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="49.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Date Reservation"/>
+                <DatePicker fx:id="reservationDate"/>
+            </children>
+        </HBox>
+        <VBox layoutX="43.0" layoutY="100.0" prefHeight="200.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="378.0" text="Adresse">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="180.0" text="Rue"/>
+                        <JFXTextField fx:id="rue" prefHeight="25.0" prefWidth="199.0"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="25.0" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="180.0" text="Ville"/>
+                        <JFXTextField fx:id="ville" prefHeight="25.0" prefWidth="199.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="66.0" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="180.0" text="Code Postal"/>
+                        <JFXTextField fx:id="codePostal" prefHeight="25.0" prefWidth="199.0"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <VBox layoutX="43.0" layoutY="300.0" prefHeight="200.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="378.0" text="Facture">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="180.0" text="Date d'emission"/>
+                        <DatePicker fx:id="dateEmission"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="20.0"/>
+                    </VBox.margin>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="25.0" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="180.0" text="Total"/>
+                        <JFXTextField fx:id="total" prefHeight="25.0" prefWidth="199.0"/>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="66.0" prefHeight="41.0" prefWidth="383.0">
+                    <children>
+                        <Label prefHeight="15.0" prefWidth="202.0" text="Reglee"/>
+                        <JFXCheckBox fx:id="reglee" contentDisplay="TOP" prefHeight="18.0" prefWidth="203.0" text=" "/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <HBox alignment="CENTER_RIGHT" layoutX="226.0" layoutY="500.0" prefHeight="41.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#onClose"
+                        style="-fx-background-color: #AF4B57;-fx-text-fill: #fff;" text="Close">
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" fx:id="saveBtn"
+                        style="-fx-background-color: #AF4B57;-fx-text-fill: #fff;" text="Sauvgarder">
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                    <HBox.margin>
+                        <Insets right="20.0"/>
+                    </HBox.margin>
+                </Button>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

@@ -76,10 +76,19 @@ public abstract class BaseDAO<T> extends DAO<T> {
     public boolean update(T obj) throws Exception {
         PreparedStatement stmt = con.prepareStatement(buildUpdateQuery());
         write(stmt, obj);
-        stmt.setInt(stmt.getParameterMetaData().getParameterCount(), getPrimaryKey(obj));
+        stmt.setInt(countOccurences(buildUpdateQuery(), '?', 0), getPrimaryKey(obj));
         return stmt.execute();
     }
 
+    private static int countOccurences(String someString, char searchedChar, int index) {
+        if (index >= someString.length()) {
+            return 0;
+        }
+
+        int count = someString.charAt(index) == searchedChar ? 1 : 0;
+        return count + countOccurences(
+                someString, searchedChar, index + 1);
+    }
 
     @Override
     public boolean create(T obj) throws SQLException {
@@ -97,7 +106,7 @@ public abstract class BaseDAO<T> extends DAO<T> {
 
 
     protected int getPrimaryKey(T obj) throws Exception {
-        Field f = obj.getClass().getDeclaredField("id");
+        Field f = obj.getClass().getField("id");
         f.setAccessible(true);
         return f.getInt(obj);
     }

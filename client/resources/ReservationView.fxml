@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="bda1.control.ReservationController">
     <children>
-        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-              minWidth="-Infinity" prefHeight="400.0" prefWidth="149.0"
-              style="-fx-background-color: #AF4B57;"
-              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="0.0">
+        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+              prefWidth="149.0" style="-fx-background-color: #AF4B57;" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <fx:include source="SideNav.fxml"/>
             </children>
@@ -26,9 +25,35 @@
             </stylesheets>
 
             <children>
-                <TableView fx:id="reservationTable" layoutX="44.0" layoutY="36.0" prefHeight="200.0" prefWidth="373.0"
-                           AnchorPane.bottomAnchor="154.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="10.0"
-                           AnchorPane.topAnchor="36.0">
+                <HBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="10.0" prefHeight="48.0" prefWidth="578.0">
+                    <children>
+                        <JFXButton fx:id="add" buttonType="RAISED" style="-fx-background-color: #FFF;" onAction="#onAdd"
+                                   text="Ajouter">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="edit" buttonType="RAISED" disable="true" style="-fx-background-color: #FFF;"
+                                   onAction="#onUpdate" text="Modifier">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                        <JFXButton fx:id="delete" buttonType="RAISED" disable="true" style="-fx-background-color: #FFF;"
+                                   onAction="#onDelete" text="Supprimer">
+                            <HBox.margin>
+                                <Insets left="5.0" right="5.0"/>
+                            </HBox.margin>
+                        </JFXButton>
+                    </children>
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </HBox>
+
+                <TableView fx:id="reservationTable" layoutX="11.0" layoutY="58.0" prefHeight="200.0" prefWidth="373.0"
+                           AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0"
+                           AnchorPane.topAnchor="58.0">
                     <columns>
                         <TableColumn fx:id="id" text="Id"/>
                         <TableColumn fx:id="dateReservation" text="Date Reservation"/>
@@ -53,13 +78,7 @@
                     </columnResizePolicy>
 
                 </TableView>
-                <!--Button layoutX="460.0" layoutY="315.0" mnemonicParsing="false" style="-fx-background-color: AF4B57;"
-                        text="Add New Reservation" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="460.0"
-                        AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="315.0">
-                    <effect>
-                        <DropShadow/>
-                    </effect>
-                </Button-->
+
             </children>
         </AnchorPane>
         <fx:include source="SideNav.fxml"/>
