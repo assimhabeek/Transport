@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 public class Facture implements IFacture {
-    private int id;
+    public int id;
 
     private LocalDate dateEmission;
     private float total;

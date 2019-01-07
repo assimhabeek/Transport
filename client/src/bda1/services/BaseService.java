@@ -80,7 +80,7 @@ public class BaseService<T> {
         return Boolean.parseBoolean(response.getEntity(String.class));
     }
 
-    private GenericType<Set<T>> getParameterizedSetType() {
+    public GenericType<Set<T>> getParameterizedSetType() {
         ParameterizedType parameterizedGenericType = new ParameterizedType() {
             public Type[] getActualTypeArguments() {
                 return new Type[]{clazz};

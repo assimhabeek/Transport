@@ -39,9 +39,11 @@ public class VoyageurController {
     TableColumn<Voyageur, String> prenom;
     @FXML
     TableColumn<Voyageur, LocalDate> dateNaissance;
+
     private VoyageurService voyageurService;
     private Voyageur selectedItem;
     private ObservableList<Voyageur> model;
+
 
 
     public void initialize() {

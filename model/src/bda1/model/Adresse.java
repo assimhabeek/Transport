@@ -1,7 +1,7 @@
 package bda1.model;
 
 public class Adresse {
-    private int id;
+    public int id;
     private String rue;
     private String codePostal;
     private String ville;

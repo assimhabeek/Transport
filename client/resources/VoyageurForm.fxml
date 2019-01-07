@@ -56,5 +56,11 @@
                 </Button>
             </children>
         </HBox>
+        <HBox alignment="CENTER_LEFT" layoutX="43.0" layoutY="223.0" prefHeight="41.0" prefWidth="383.0">
+            <children>
+                <Label prefHeight="15.0" prefWidth="180.0" text="Reservation"/>
+                <ComboBox fx:id="reservation" prefHeight="25.0" prefWidth="199.0"/>
+            </children>
+        </HBox>
     </children>
 </AnchorPane>

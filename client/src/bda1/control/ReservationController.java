@@ -2,8 +2,10 @@ package bda1.control;
 
 import bda1.model.Facture;
 import bda1.model.Reservation;
+import bda1.model.Voyageur;
 import bda1.services.FactureService;
 import bda1.services.ReservationService;
+import bda1.services.VoyageurService;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -49,18 +51,30 @@ public class ReservationController {
     TableColumn<Reservation, Boolean> reglee;
     @FXML
     TableColumn<Reservation, Float> total;
-
     ObservableList<Reservation> model;
 
+    @FXML
+    TableView<Voyageur> voyageurTable;
+    @FXML
+    TableColumn<Voyageur, String> nom;
+    @FXML
+    TableColumn<Voyageur, String> prenom;
+    @FXML
+    TableColumn<Voyageur, LocalDate> dateNaissance;
+
+
     ReservationService reservationService;
+    VoyageurService voyageurService;
     FactureService factureService;
 
     private Reservation selectedItem;
 
     public void initialize() {
         reservationService = new ReservationService();
+        voyageurService = new VoyageurService();
         factureService = new FactureService();
         setUpTable();
+        setUpVoyageurTable();
         fillTable();
         listenOnRowSelection();
     }
@@ -70,6 +84,8 @@ public class ReservationController {
         reservationTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedItem = newSelection;
             disableEditDeleteButtons(selectedItem == null);
+            if (selectedItem != null)
+                fillVoyageurTable();
         });
     }
 
@@ -112,6 +128,18 @@ public class ReservationController {
 
     }
 
+    public void setUpVoyageurTable() {
+        prenom.setCellValueFactory(itemData -> new ReadOnlyStringWrapper(itemData.getValue().getPrenom()));
+        nom.setCellValueFactory(itemData -> new ReadOnlyStringWrapper(itemData.getValue().getNom()));
+        dateNaissance.setCellValueFactory(itemData -> new ReadOnlyObjectWrapper<>(itemData.getValue().getDateNaissance()));
+    }
+
+    public void fillVoyageurTable() {
+        voyageurTable.setItems(FXCollections.observableArrayList(
+                voyageurService.findByReservation(selectedItem.getId())
+        ));
+    }
+
 
     public void openFrom(Reservation item) throws IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -151,19 +179,6 @@ public class ReservationController {
         }
     }
 
-/*
-    public Facture cloneFacture(Reservation reservation) {
-        Facture facture = new Facture(reservation.getrFacture().getId(),
-                reservation.getrFacture().getDateEmission(),
-                reservation.getrFacture().getTotal(),
-                reservation.getrFacture().isReglee());
-        facture.setrReservation(new Reservation(reservation.getId(), reservation.getDateReservation()));
-        facture.getrReservation().setrAdresse(new Adresse(reservation.getrAdresse().getId(),
-                reservation.getrAdresse().getRue(),
-                reservation.getrAdresse().getCodePostal(),
-                reservation.getrAdresse().getVille()));
-        return facture;
-    }
-*/
+
 }
 

@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Reservation implements IReservation {
-    private int id;
+    public int id;
 
     private LocalDate dateReservation;
     private Set<Voyageur> rVoyageurs;
@@ -24,6 +24,11 @@ public class Reservation implements IReservation {
         this.dateReservation = dateReservation;
         this.rVoyageurs = new HashSet<>();
         this.rTransports = new HashSet<>();
+    }
+
+    @Override
+    public String toString() {
+        return dateReservation.toString();
     }
 
     public int getId() {

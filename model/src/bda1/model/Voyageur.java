@@ -6,11 +6,19 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 public class Voyageur {
-    private int id;
+    public int id;
     private String nom;
     private String prenom;
-
     private LocalDate dateNaissance;
+    private int reservationId;
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
 
     public Voyageur() {
     }

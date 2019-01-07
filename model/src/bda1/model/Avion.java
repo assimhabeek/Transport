@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Avion extends Transport {
 
-    private String compagnie;
+    public String compagnie;
     private String typeAppareil;
 
     public Avion() {
