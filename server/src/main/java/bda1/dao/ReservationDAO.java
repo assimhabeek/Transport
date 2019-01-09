@@ -4,6 +4,8 @@ import bda1.model.Adresse;
 import bda1.model.Reservation;
 
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ReservationDAO extends BaseDAO<Reservation> {
 
@@ -42,5 +44,23 @@ public class ReservationDAO extends BaseDAO<Reservation> {
     @Override
     public String buildUpdateQuery() {
         return "UPDATE RESERVATION SET RESERVATION_DATE=?,RUE=?,CODE_POSTAL=?,VILLE=? WHERE ID=?";
+    }
+
+
+    public boolean addTransport(int rId, int tId) throws SQLException {
+        String sql = "INSERT INTO TRANSPORT_RESERVATION VALUES (?,?)";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, tId);
+        stmt.setInt(2, rId);
+        return stmt.execute();
+    }
+
+    public boolean removeTransport(int rId, int tId) throws SQLException {
+        String sql = "DELETE TRANSPORT_RESERVATION " +
+                "WHERE TRANSPORT_ID=? AND RESERVATION_ID=?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setInt(1, tId);
+        stmt.setInt(2, rId);
+        return stmt.execute();
     }
 }

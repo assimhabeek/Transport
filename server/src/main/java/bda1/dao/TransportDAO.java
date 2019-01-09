@@ -1,8 +1,11 @@
 package bda1.dao;
 
+import bda1.model.Reservation;
 import bda1.model.Transport;
 
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TransportDAO extends BaseDAO<Transport> {
 
@@ -23,7 +26,6 @@ public class TransportDAO extends BaseDAO<Transport> {
                 return 0;
             }
         };
-
     }
 
 
@@ -53,6 +55,19 @@ public class TransportDAO extends BaseDAO<Transport> {
                 "NOMBRE_SIEGES_OCCUPES=?," +
                 "NOMBRE_SIEGES_TOTAL=?," +
                 "PRIX=? WHERE ID=?";
+    }
+
+    public Set<Transport> findByTransport(int id) throws SQLException {
+        String sql = "SELECT * FROM TRANSPORT " +
+                "INNER JOIN TRANSPORT_RESERVATION TR on TRANSPORT.ID = TR.TRANSPORT_ID " +
+                "AND TR.RESERVATION_ID=" + id;
+        PreparedStatement stmt = con.prepareStatement(sql);
+        ResultSet result = stmt.executeQuery();
+        Set<Transport> records = new HashSet<>();
+        while (result.next()) {
+            records.add(read(result));
+        }
+        return records;
     }
 
 }

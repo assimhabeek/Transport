@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
@@ -18,7 +18,7 @@
             </children>
         </Pane>
         <AnchorPane layoutX="149.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                    minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FCC6AB;"
+                    minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #FCC6AB;"
                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="0.0"
                     AnchorPane.topAnchor="0.0">
             <stylesheets>
@@ -51,7 +51,7 @@
                         <Insets left="10.0"/>
                     </padding>
                 </HBox>
-                <VBox layoutX="11.0" layoutY="58.0" prefHeight="200.0" prefWidth="373.0" AnchorPane.bottomAnchor="132.0"
+                <VBox layoutX="11.0" layoutY="58.0" prefHeight="400.0" prefWidth="373.0" AnchorPane.bottomAnchor="132.0"
                       AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="58.0">
                     <children>
                         <Label layoutX="14.0" layoutY="14.0" text="Reservation">
@@ -83,21 +83,81 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
                             </columnResizePolicy>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="14.0" text="Voyageurs">
-                            <font>
-                                <Font name="SansSerif Bold" size="22.0"/>
-                            </font>
-                        </Label>
-                        <TableView fx:id="voyageurTable">
-                            <columns>
-                                <TableColumn fx:id="nom" text="Nom"/>
-                                <TableColumn fx:id="prenom" text="Prenom"/>
-                                <TableColumn fx:id="dateNaissance" text="Date de Naissance"/>
-                            </columns>
-                            <columnResizePolicy>
-                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-                            </columnResizePolicy>
-                        </TableView>
+                        <HBox prefHeight="400.0" prefWidth="578.0">
+                            <children>
+                                <VBox prefHeight="600.0" prefWidth="600">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" text="Voyageurs">
+                                            <font>
+                                                <Font name="SansSerif Bold" size="22.0"/>
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="voyageurTable">
+                                            <columns>
+                                                <TableColumn fx:id="nom" text="Nom"/>
+                                                <TableColumn fx:id="prenom" text="Prenom"/>
+                                                <TableColumn fx:id="dateNaissance" text="Date de Naissance"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="600.0" prefWidth="600">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" text="Transport">
+                                            <font>
+                                                <Font name="SansSerif Bold" size="22.0"/>
+                                            </font>
+                                        </Label>
+                                        <HBox alignment="CENTER_LEFT" layoutX="11.0" layoutY="10.0" prefHeight="48.0"
+                                              prefWidth="578.0">
+                                            <children>
+                                                <ComboBox fx:id="transportComboBox" prefHeight="25.0"
+                                                          prefWidth="199.0"/>
+                                                <JFXButton fx:id="addTransport" buttonType="RAISED"
+                                                           disable="true"
+                                                           onAction="#onAddTransport"
+                                                           style="-fx-background-color: #FFF;"
+                                                           text="Ajouter">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" right="5.0"/>
+                                                    </HBox.margin>
+                                                </JFXButton>
+                                                <JFXButton fx:id="deleteTransport" buttonType="RAISED" disable="true"
+                                                           onAction="#onDeleteTransport"
+                                                           style="-fx-background-color: #FFF;"
+                                                           text="SupprimerTransport">
+                                                    <HBox.margin>
+                                                        <Insets left="5.0" right="5.0"/>
+                                                    </HBox.margin>
+                                                </JFXButton>
+                                            </children>
+                                            <padding>
+                                                <Insets left="10.0"/>
+                                            </padding>
+                                        </HBox>
+
+                                        <TableView fx:id="transportTable" layoutY="58.0" prefHeight="227.0"
+                                                   prefWidth="331.0" AnchorPane.bottomAnchor="132.0"
+                                                   AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                                                   AnchorPane.topAnchor="58.0">
+                                            <columns>
+                                                <TableColumn fx:id="tid" text="Id"/>
+                                                <TableColumn fx:id="depart" text="Date Depart"/>
+                                                <TableColumn fx:id="arrive" text="Date Arrive"/>
+                                                <TableColumn fx:id="ttotal" text="Nbr Sieges Total"/>
+                                                <TableColumn fx:id="prix" text="Prix"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
                     </children>
                 </VBox>
             </children>

@@ -76,6 +76,7 @@ public abstract class BaseDAO<T> extends DAO<T> {
     public boolean update(T obj) throws Exception {
         PreparedStatement stmt = con.prepareStatement(buildUpdateQuery());
         write(stmt, obj);
+
         stmt.setInt(countOccurences(buildUpdateQuery(), '?', 0), getPrimaryKey(obj));
         return stmt.execute();
     }

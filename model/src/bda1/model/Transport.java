@@ -90,6 +90,11 @@ public abstract class Transport implements ITransport {
     }
 
     @Override
+    public String toString() {
+        return dateDepart.toString();
+    }
+
+    @Override
     public void addReservation(Reservation reservation) {
         rReservation.add(reservation);
         reservation.getrTransports().add(this);
